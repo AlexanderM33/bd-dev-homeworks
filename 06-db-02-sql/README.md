@@ -12,7 +12,7 @@
 
 Приведите получившуюся команду или docker-compose-манифест.
 
-'docker run --name postgres_mishin -p 5432:5432 -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=qweqwe -v '/var/lib/postgresql/data' -v '/tmp/backup' postgres:12'
+''docker run --name postgres_mishin -p 5432:5432 -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=qweqwe -v '/var/lib/postgresql/data' -v '/tmp/backup' postgres:12''
 
 ## Задача 2
 
