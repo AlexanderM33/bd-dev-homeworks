@@ -46,6 +46,14 @@ docker run --name postgres_mishin -p 5432:5432 -e POSTGRES_USER=test-admin-user 
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db;
 - список пользователей с правами над таблицами test_db.
 
+![2](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/5df76eba-5cde-4cce-a611-22a9a94eb725)
+
+![1](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/f77ec1f6-b179-418c-8474-79f6085c7936)
+
+![3](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/c9103975-7908-4343-a853-6164a31a1e56)
+
+
+
 ## Задача 3
 
 Используя SQL-синтаксис, наполните таблицы следующими тестовыми данными:
@@ -78,6 +86,9 @@ docker run --name postgres_mishin -p 5432:5432 -e POSTGRES_USER=test-admin-user 
     - запросы,
     - результаты их выполнения.
 
+![5](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/85d71913-8752-4711-860a-be5d02944dc1)
+
+
 ## Задача 4
 
 Часть пользователей из таблицы clients решили оформить заказы из таблицы orders.
@@ -96,6 +107,9 @@ docker run --name postgres_mishin -p 5432:5432 -e POSTGRES_USER=test-admin-user 
  
 Подсказка: используйте директиву `UPDATE`.
 
+![6](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/5e16d2ac-8324-4517-936e-3c642c034b12)
+
+
 ## Задача 5
 
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 
@@ -103,16 +117,34 @@ docker run --name postgres_mishin -p 5432:5432 -e POSTGRES_USER=test-admin-user 
 
 Приведите получившийся результат и объясните, что значат полученные значения.
 
+![7](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/99133c47-ae86-4adb-8bda-b73120a72e05)
+
+Используется метод последовательного чтения данных метода Seq Scan. Значение 0.00 —  это ожидаемые затраты на получение первой строки. Второе — 22.00 — ожидаемые затраты на получение всех строк. rows - ожидаемое число строк 1200, которое должен вывести этот узел. Width 32 - ожидаемый средний размер строк, выводимых этим узлом плана (в байтах). Materealize -это реальное выполнение запроса
+
+
+
+
 ## Задача 6
 
 Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. задачу 1).
+```
+docker exec 9d10c7e4be57 pg_dump -U test-admin-user -d test_db -Fc -f /var/lib/postgresql/backups/backup_file.dump
+```
 
 Остановите контейнер с PostgreSQL, но не удаляйте volumes.
+```
+docker stop 9d10c7e4be57
+```
 
 Поднимите новый пустой контейнер с PostgreSQL.
+```
+docker run --name postgres_mishin777 -p 5432:5432 -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=qweqwe -v '/var/lib/postgresql/data' -v '/tmp/backup' postgres:12
+```
 
 Восстановите БД test_db в новом контейнере.
-
+```
+docker exec -it postgres_mishin7 pg_restore -U test-admin-user -Ft -v -d test_db /var/lib/postgresql/backups/backup_file.dump
+```
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
 
 ---
