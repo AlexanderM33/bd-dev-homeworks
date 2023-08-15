@@ -27,11 +27,8 @@
 
 ![4](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/7c03451b-f8b0-49e3-9234-1fa03a9076de)
 
-
-
 **Приведите в ответе** количество записей с `price` > 300.
 
-![5](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/a074f241-5889-4d37-a955-809ce9bc4ac8)
 
 
 В следующих заданиях мы будем продолжать работу с этим контейнером.
@@ -48,12 +45,14 @@
     - Фамилия "Pretty"
     - Имя "James".
 
-
+![5](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/a074f241-5889-4d37-a955-809ce9bc4ac8)
 
 Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.
     
 Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES, получите данные по пользователю `test` и 
 **приведите в ответе к задаче**.
+
+
 
 ## Задача 3
 
@@ -65,6 +64,12 @@
 Измените `engine` и **приведите время выполнения и запрос на изменения из профайлера в ответе**:
 - на `MyISAM`,
 - на `InnoDB`.
+![7](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/7d0534c8-5090-44c6-a49a-b4ad6b10da6f)
+
+
+![8](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/39d45687-0820-4c4c-b524-a43e5b7031d7)
+
+
 
 ## Задача 4 
 
@@ -79,6 +84,32 @@
 - размер файла логов операций 100 Мб.
 
 Приведите в ответе изменённый файл `my.cnf`.
+
+![9](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/a370ce91-e9fa-422d-a734-648c45513348)
+
+
+```
+[mysqld]
+
+skip-host-cache
+skip-name-resolve
+datadir=/var/lib/mysql
+socket=/var/run/mysqld/mysqld.sock
+secure-file-priv=/var/lib/mysql-files
+user=mysql
+
+pid-file=/var/run/mysqld/mysqld.pid
+[client]
+socket=/var/run/mysqld/mysqld.sock
+
+!includedir /etc/mysql/conf.d/
+innodb_flush_log_at_trx_commit = 0
+innodb_file_per_table = ON
+innodb_log_buffer_size = 1M
+innodb_buffer_pool_size = 4G
+innodb_log_file_size = 100M
+
+```
 
 ---
 
