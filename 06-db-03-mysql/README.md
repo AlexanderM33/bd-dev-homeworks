@@ -67,7 +67,8 @@
 ![7](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/7d0534c8-5090-44c6-a49a-b4ad6b10da6f)
 
 
-![8](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/c914a370-9c9b-4101-a263-0c247cf2e71a)
+![8](https://github.com/AlexanderM33/bd-dev-homeworks/assets/122460278/6c145ac4-3665-455b-8906-6419a7d96c8d)
+
 
 
 ## Задача 4 
