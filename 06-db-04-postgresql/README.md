@@ -81,7 +81,14 @@ docker exec -ti mishindb bash
 
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
 
-`Для этого можно добавить индекс`
+`
+Можно сделать такие изменения
+CREATE TABLE public.orders (
+    id integer NOT NULL,
+    title character varying(80) UNIQUE NOT NULL,
+    price integer DEFAULT 0
+);
+`
 
 ---
 
